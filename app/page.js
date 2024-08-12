@@ -29,18 +29,18 @@ export default function Home() {
   }
 
   return (
-    <div className="mt-[100px]">
+    <div className="mt-[100px] max-sm:mt-[130px]">
       <div className="ml-5">
         <button
           id="dropdownDefaultButton"
           data-dropdown-toggle="dropdown"
-          class="text-white   focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
+          className="text-white   focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
           type="button"
           onClick={() => setDropdown((prevState) => !prevState)}
         >
           Filter Blogs{" "}
           <svg
-            class="w-2.5 h-2.5 ms-3"
+            className="w-2.5 h-2.5 ms-3"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -48,9 +48,9 @@ export default function Home() {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="m1 1 4 4 4-4"
             />
           </svg>
@@ -58,16 +58,16 @@ export default function Home() {
 
         <div
           id="dropdown"
-          class={`z-10 divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700 ${
+          className={`z-10 divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700 ${
             dropdown ? `hidden` : ""
           }`}
         >
           <ul
-            class="py-2 text-sm text-gray-200"
+            className="py-2 text-sm text-gray-200"
             aria-labelledby="dropdownDefaultButton"
           >
             <li
-              class="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+              className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
               onClick={() => {
                 setDropdown((prevState) => !prevState);
                 setCategory("all");
@@ -76,7 +76,7 @@ export default function Home() {
               All
             </li>
             <li
-              class="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+              className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
               onClick={() => {
                 setDropdown((prevState) => !prevState);
                 setCategory("Tech");
@@ -85,7 +85,7 @@ export default function Home() {
               Tech
             </li>
             <li
-              class="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+              className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
               onClick={() => {
                 setDropdown((prevState) => !prevState);
                 setCategory("Finance");
@@ -94,7 +94,7 @@ export default function Home() {
               Finance
             </li>
             <li
-              class="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+              className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
               onClick={() => {
                 setDropdown((prevState) => !prevState);
                 setCategory("Food");
@@ -103,7 +103,7 @@ export default function Home() {
               Food
             </li>
             <li
-              class="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+              className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
               onClick={() => {
                 setDropdown((prevState) => !prevState);
                 setCategory("Life");

@@ -22,6 +22,7 @@ const PostComents = ({ singleComment, email, getComments }) => {
   useEffect(() => {
     showDeleteButton();
   }, []);
+
   return (
     <div className="mt-5 ml-5 p-3 min-w-full">
       <div className="flex gap-4 items-center max-w-[220px] justify-between">
@@ -45,8 +46,8 @@ const PostComents = ({ singleComment, email, getComments }) => {
           />
         ) : null}
       </div>
-      <div className="mt-2 max-w-[1000px]">
-        <p class="mb-3 text-gray-400">{singleComment.text}</p>
+      <div className="mt-2 max-w-[1000px] max-sm:w-[250px] overflow-hidden">
+        <p className="mb-3 text-gray-400 break-words">{singleComment.text}</p>
       </div>
     </div>
   );

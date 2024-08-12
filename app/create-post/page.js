@@ -46,18 +46,18 @@ const page = () => {
     }
   };
   return (
-    <div className="flex h-screen flex-col gap-6  w-screen justify-center">
-      <div class="mb-6 mt-[50px] px-5">
+    <div className="flex h-screen flex-col gap-6  w-screen justify-center max-sm:h-fit">
+      <div className="mb-6 mt-[50px] px-5 max-sm:pt-20 max max-sm:mb-0 ">
         <label
           for="default-input"
-          class="block mb-2 text-sm font-medium text-white"
+          className="block mb-2 text-sm font-medium text-white"
         >
           Enter Title
         </label>
         <input
           type="text"
           id="default-input"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
           placeholder="Enter Title"
           onChange={(event) => handleTitleChange(event.target.value)}
         />
@@ -81,7 +81,7 @@ const page = () => {
         </div>
       </div>
 
-      <div className="w-full max-w-sm ml-5">
+      <div className="w-full max-w-sm ml-5 max-sm:p-3 max-sm:max-w-80">
         <label
           htmlFor="countries"
           className="block mb-2 text-sm font-medium text-white"
@@ -91,7 +91,7 @@ const page = () => {
         <select
           onChange={(event) => handleCategoryChange(event.target.value)}
           id="countries"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border  text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
         >
           <option value="" disabled>
             Choose Blog Category
@@ -105,7 +105,7 @@ const page = () => {
       <div>
         <button
           type="button"
-          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 ml-5 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 ml-5 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 max-sm:mb-10"
           onClick={() => handlePostSubmission()}
         >
           Create Post

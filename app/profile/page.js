@@ -31,7 +31,7 @@ const profile = () => {
   }
   return (
     <div className="mt-[100px] p-5 flex flex-col ">
-      <h2 class="text-4xl font-extrabold text-white">My Blogs</h2>
+      <h2 className="text-4xl font-extrabold text-white">My Blogs</h2>
       <div className="flex gap-4 mt-5 flex-wrap">
         {posts.map((post) => (
           <Card key={post._id} post={post} email={userEmail} />
