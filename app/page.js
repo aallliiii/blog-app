@@ -23,7 +23,8 @@ export default function Home() {
       setData(dataFetched);
     };
     getAllPosts();
-  }, [category]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category]); // eslint-disable-line react-hooks/exhaustive-deps
   if (status === "loading") {
     return <Loader />;
   }

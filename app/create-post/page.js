@@ -14,7 +14,8 @@ const Page = () => {
     if (status === "unauthenticated") {
       router.push("/login");
     }
-  }, [session]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (status === "loading") {
     return <Loader />;

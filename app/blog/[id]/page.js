@@ -36,7 +36,8 @@ const Page = ({ params }) => {
     };
     getPost();
     getAllComments();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   if (status === "loading") {
     return <Loader />;
   }
@@ -109,14 +110,12 @@ const Page = ({ params }) => {
         <div className="flex flex-col ">
           {comments.length > 0 ? (
             comments.map((single) => (
-              <div className="flex">
-                <PostComents
-                  key={single._id}
-                  singleComment={single}
-                  email={email}
-                  getComments={getAllComments}
-                />
-              </div>
+              <PostComents
+                key={single._id}
+                singleComment={single}
+                email={email}
+                getComments={getAllComments}
+              />
             ))
           ) : (
             <h1 className="text-white p-5 ml-auto mr-auto text-3xl">
