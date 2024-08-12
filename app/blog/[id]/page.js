@@ -11,6 +11,8 @@ const page = ({ params }) => {
   const [comment, setComment] = useState("");
   const email = session?.user.email;
   const [comments, setComments] = useState([]);
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const [textareaValue, setTextareaValue] = useState("");
   const getAllComments = async () => {
     try {
       const commentResponse = await axios.get(`/api/get-comments?id=${id}`);
@@ -41,6 +43,7 @@ const page = ({ params }) => {
 
   const handleCommentChange = (value) => {
     setComment(value);
+    setTextareaValue(value);
     console.log(comment);
   };
   const handleCommentSubmit = async () => {
@@ -67,31 +70,44 @@ const page = ({ params }) => {
       </div>
       <p class="mb-3 text-gray-200 px-20 dark:text-gray-400">{data.content}</p>
       <p class="text-sm px-20 text-white">Category: {data.category}</p>
-      <h3 class="text-3xl font-bold text-white mt-4 ml-5">Add Comment</h3>
-      <div className="p-5">
-        <textarea
-          id="message"
-          rows="4"
-          class="block p-2.5 w-full text-sm rounded-lg border  focus:ring-blue-500 focus:border-blue-500 bg-gray-700 border-gray-600 placeholder-gray-200 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Write your thoughts here..."
-          onChange={(event) => handleCommentChange(event.target.value)}
-        ></textarea>
-        <button
-          type="button"
-          class="focus:outline-none text-white focus:ring-4 mt-3 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-green-600 hover:bg-green-700 focus:ring-green-800"
-          onClick={() => {
-            handleCommentSubmit();
-            window.location.reload();
-          }}
-        >
-          Add Comment
-        </button>
-      </div>
+      {session ? (
+        <div>
+          <h3 class="text-3xl font-bold text-white mt-4 ml-5">Add Comment</h3>
+          <div className="p-5">
+            <textarea
+              id="message"
+              rows="4"
+              class="block p-2.5 w-full text-sm rounded-lg border  focus:ring-blue-500 focus:border-blue-500 bg-gray-700 border-gray-600 placeholder-gray-200 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Write your thoughts here..."
+              onChange={(event) => handleCommentChange(event.target.value)}
+              value={textareaValue}
+            ></textarea>
+            <button
+              type="button"
+              class="focus:outline-none text-white focus:ring-4 mt-3 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-green-600 hover:bg-green-700 focus:ring-green-800"
+              onClick={async () => {
+                handleCommentSubmit();
+                await delay(300);
+                await getAllComments();
+                setTextareaValue("");
+                setComment("");
+              }}
+            >
+              Add Comment
+            </button>
+          </div>
+        </div>
+      ) : null}
       <div>
-        <h3 class="text-3xl font-bold text-white mt-0 ml-5">Comments:</h3>
+        <h3 class="text-3xl font-bold text-white mt-0 ml-5">Comments</h3>
         <div className="flex flex-wrap">
           {comments.map((single) => (
-            <PostComents key={single} singleComment={single} />
+            <PostComents
+              key={single}
+              singleComment={single}
+              email={email}
+              getComments={getAllComments}
+            />
           ))}
         </div>
       </div>

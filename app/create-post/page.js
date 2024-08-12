@@ -19,8 +19,8 @@ const page = () => {
   if (status === "loading") {
     return <Loader />;
   }
-  const email = session.user.email;
-  const nameUser = session.user.name;
+  const email = session?.user.email;
+  const nameUser = session?.user.name;
   const handleTextChange = (value) => {
     setText(value);
   };
@@ -62,7 +62,7 @@ const page = () => {
           onChange={(event) => handleTitleChange(event.target.value)}
         />
       </div>
-      {/* Centered Textarea */}
+
       <div className="flex justify-center w-screen">
         <div className="px-5 w-screen">
           <label
@@ -81,7 +81,6 @@ const page = () => {
         </div>
       </div>
 
-      {/* Dropdown Aligned to Start */}
       <div className="w-full max-w-sm ml-5">
         <label
           htmlFor="countries"
