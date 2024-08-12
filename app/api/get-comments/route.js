@@ -9,6 +9,7 @@ export async function GET(req) {
     const id = url.searchParams.get("id");
     const comments = await commentModel
       .find({ post: id })
+      .sort({ _id: -1 })
       .populate("user")
       .populate("post");
 

@@ -4,7 +4,7 @@ import postModel from "@/models/postModel";
 export async function GET(req) {
   try {
     await dbConnection();
-    const posts = await postModel.find();
+    const posts = await postModel.find().sort({ _id: -1 });
 
     return NextResponse.json(posts, {
       status: 200,
