@@ -11,7 +11,7 @@ const Card = ({ post, email }) => {
   const handleDelete = (email) => {
     try {
       const response = axios.delete(
-        `http://localhost:3000/api/delete-post?id=${post._id}`
+        `http://https://blog-app-delta-umber.vercel.app//api/delete-post?id=${post._id}`
       );
 
       window.location.reload();
