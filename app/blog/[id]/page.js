@@ -10,6 +10,7 @@ const Page = ({ params }) => {
   const { data: session, status } = useSession();
   const [comment, setComment] = useState("");
   const email = session?.user.email;
+  const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const [textareaValue, setTextareaValue] = useState("");
@@ -32,13 +33,15 @@ const Page = ({ params }) => {
         setData(postData);
       } catch {
         console.log("error");
+      } finally {
+        setLoading(false);
       }
     };
     getPost();
     getAllComments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  if (status === "loading") {
+  if (status === "loading" || loading) {
     return <Loader />;
   }
 
