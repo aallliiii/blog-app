@@ -11,7 +11,7 @@ const Card = ({ post, email }) => {
   const handleDelete = (email) => {
     try {
       const response = axios.delete(`/api/delete-post?id=${post._id}`);
-
+      console.log(response);
       window.location.reload();
     } catch (error) {
       console.log(error);
