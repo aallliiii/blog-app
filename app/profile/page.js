@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader";
 import Card from "@/components/Card";
-const profile = () => {
+const Profile = () => {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [posts, setPosts] = useState([]);
@@ -41,4 +41,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

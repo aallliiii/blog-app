@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import Loader from "@/components/Loader";
 import PostComents from "@/components/PostComents";
 import axios from "axios";
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const [data, setData] = useState({});
   const { id } = params;
   const { data: session, status } = useSession();
@@ -129,4 +129,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

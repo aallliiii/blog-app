@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Loader from "@/components/Loader";
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [text, setText] = useState("");
@@ -115,4 +115,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
