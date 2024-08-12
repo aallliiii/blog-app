@@ -15,7 +15,10 @@ const PostComents = ({ singleComment, email, getComments }) => {
     }
   };
   const showDeleteButton = () => {
-    if (email === singleComment.user.email) {
+    if (
+      email === singleComment.user.email ||
+      email === "malihumayon@gmail.com"
+    ) {
       setShowButton(true);
     }
   };

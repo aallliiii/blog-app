@@ -4,7 +4,7 @@ import { MdDelete } from "react-icons/md";
 const Card = ({ post, email }) => {
   const router = useRouter();
   let deleteButton = false;
-  if (post.email === email) {
+  if (post.email === email || email === "malihumayon@gmail.com") {
     deleteButton = true;
   }
 
