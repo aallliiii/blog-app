@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "../components/Navbar";
 import SessionWrapper from "../components/sessionWrapper";
 const inter = Inter({ subsets: ["latin"] });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
             {children}
           </div>
         </SessionWrapper>
+        <Analytics />
       </body>
     </html>
   );
